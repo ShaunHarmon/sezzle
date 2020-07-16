@@ -10,9 +10,15 @@ textarea.mat-input-element  {
   align-items: center;
   flex-direction: column;
   padding: 20px;
+
 }
 
 .mat-form-field-infix {
   height: 100px;
   width: 300px;
+}
+
+.mat-card{
+
+  max-width: 500px;
 }
