@@ -1,1 +1,18 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+textarea.mat-input-element  {
+  resize: none;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mat-form-field-infix {
+  height: 100px;
+  width: 300px;
+}
