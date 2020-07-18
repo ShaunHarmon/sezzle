@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { ResultService } from './Services/result.service';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit{
     this.getResults();
   }
 
-  constructor(private resultService: ResultService){}
+  constructor(private resultService: ResultService, public dialog: MatDialog){}
 
   // tslint:disable-next-line: typedef
   getNum(n: string){
@@ -64,9 +65,9 @@ export class AppComponent implements OnInit{
   getAnswer(){
     // tslint:disable-next-line: no-eval
     this.total = eval(this.calculation);
-    this.resultService.createResult(this.calculation)
+    this.resultService.createResult(this.calculation, this.total)
         .then(res => {
-          console.log(res);
+          //console.log(res);
         });
     console.log(this.resultList);
   }
@@ -74,7 +75,6 @@ export class AppComponent implements OnInit{
   getResults = () =>
     this.resultService
     .getResults()
-    .subscribe(res => (this.resultList = res))
+    .subscribe(res => (this.resultList = res).reverse())
 
 }
-

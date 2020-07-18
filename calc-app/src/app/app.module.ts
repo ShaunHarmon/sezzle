@@ -14,11 +14,21 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { ResultService } from './Services/result.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +40,12 @@ import { ResultService } from './Services/result.service';
     FormsModule,
     MatCardModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
+
   ],
   providers: [ResultService],
   bootstrap: [AppComponent]

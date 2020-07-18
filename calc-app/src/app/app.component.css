@@ -85,3 +85,15 @@ button:hover {
   height: 100%;
   width: 100%;
 }
+
+.dialog{
+  background-color: cornflowerblue;
+  height: 40px;
+  padding: 5px;
+  color: white;
+  position: absolute;
+  right: 0px;
+  margin-right: 5px;
+}
+
+

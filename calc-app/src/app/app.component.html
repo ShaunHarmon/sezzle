@@ -1,13 +1,19 @@
 <div class="container">
   <mat-toolbar color="primary">
-    <span>Sezzle Calculator</span>
+    <span>Calculator</span>
+    <button class="dialog" mat-button [matMenuTriggerFor]="menu">History</button>
+    <mat-menu #menu="matMenu">
+      <mat-list class="list" role="list">
+        <mat-list-item role="listitem" *ngFor="let results of resultList | slice:0:10" >{{results.result}}={{results.total}}</mat-list-item>
+      </mat-list>
+    </mat-menu>
   </mat-toolbar>
 
   <div class="result">
     <mat-card class="result" style="text-align: center;">
       <mat-card-content>
         <h2>Most Recent Calculation</h2>
-        <h3>{{resultList[0]}}</h3>
+        <h3 *ngIf="resultList">{{resultList[0].result}}={{resultList[0].total}}</h3>
       </mat-card-content>
     </mat-card>
   </div>
@@ -47,4 +53,5 @@
     </div>
   </div>
 </div>
+
 
