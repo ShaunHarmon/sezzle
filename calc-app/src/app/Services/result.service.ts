@@ -9,7 +9,7 @@ export class ResultService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  //tslint:disable-next-line: typedef
+  //[POST] send calculation, total, and timestamp to firebase DB
   createResult(result, total){
     return new Promise<any>((resolve, reject) =>{
       this.firestore
@@ -19,13 +19,9 @@ export class ResultService {
   });
   }
 
-  // tslint:disable-next-line: typedef
+  //[GET] get collection from Firebase DB ordered by timestamp.
   getResults() {
     return this.firestore.collection('results', ref => ref.orderBy('timestamp')).valueChanges();
-    // return this.firestore.collection('results').snapshotChanges().pipe(
-    //   map(actions => actions.map(a => a.payload.doc.data())
-    //   .sort((a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()))
-    // );
   }
 }
 

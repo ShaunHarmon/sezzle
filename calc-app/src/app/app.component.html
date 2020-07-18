@@ -1,10 +1,10 @@
 <div class="container">
   <mat-toolbar color="primary">
-    <span>Calculator</span>
+    <span>Sezzle Calculator</span>
     <button class="dialog" mat-button [matMenuTriggerFor]="menu">History</button>
     <mat-menu #menu="matMenu">
       <mat-list class="list" role="list">
-        <mat-list-item role="listitem" *ngFor="let results of resultList | slice:0:10" >{{results.result}}={{results.total}}</mat-list-item>
+        <mat-list-item class="spacing" role="listitem" *ngFor="let results of resultList | slice:0:10" >{{results.result}}={{results.total}}</mat-list-item>
       </mat-list>
     </mat-menu>
   </mat-toolbar>
@@ -13,11 +13,10 @@
     <mat-card class="result" style="text-align: center;">
       <mat-card-content>
         <h2>Most Recent Calculation</h2>
-        <h3 *ngIf="resultList">{{resultList[0].result}}={{resultList[0].total}}</h3>
+        <h3 class="spacing" *ngIf="resultList">{{resultList[0].result}}={{resultList[0].total}}</h3>
       </mat-card-content>
     </mat-card>
   </div>
-
 
   <div class="calculator">
     <input type="text" class="calculator-screen" [value]="calculation" disabled />
@@ -43,7 +42,6 @@
       <button type="button" (click)="getNum('2')" value="2">2</button>
       <button type="button" (click)="getNum('3')" value="3">3</button>
 
-
       <button type="button" (click)="getNum('0')" value="0">0</button>
       <button type="button" (click)="getNum('.')" class="decimal" value=".">.</button>
       <button type="button" (click)="clearDisplay()" class="all-clear" value="all-clear">AC</button>
@@ -53,5 +51,3 @@
     </div>
   </div>
 </div>
-
-

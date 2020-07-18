@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core'
 import { ResultService } from './Services/result.service';
 import {MatDialog} from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +10,6 @@ import {MatDialog} from '@angular/material/dialog';
 
 export class AppComponent implements OnInit{
 
-  title = 'calc-app';
   total: any;
   calculation = '';
   currentNum = '';
@@ -21,14 +19,12 @@ export class AppComponent implements OnInit{
   resultList: any;
   result: any;
 
-  // tslint:disable-next-line: typedef
   ngOnInit(){
     this.getResults();
   }
 
   constructor(private resultService: ResultService, public dialog: MatDialog){}
 
-  // tslint:disable-next-line: typedef
   getNum(n: string){
     if (n === '.'){
       if (this.decimalSet){
@@ -42,7 +38,6 @@ export class AppComponent implements OnInit{
     console.log(this.calculation);
   }
 
-  // tslint:disable-next-line: typedef
   getOperator(n: string){
     if (this.operatorSet){
       return;
@@ -50,31 +45,27 @@ export class AppComponent implements OnInit{
     this.calculation += n;
     this.operatorSet = true;
     this.decimalSet = false;
-    //console.log(n);
+    console.log(n);
   }
 
-  // tslint:disable-next-line: typedef
   clearDisplay(){
     this.calculation = '';
     this.total = '';
     this.operatorSet = false;
-    //console.log(this.calculation);
   }
 
-  // tslint:disable-next-line: typedef
   getAnswer(){
-    // tslint:disable-next-line: no-eval
     this.total = eval(this.calculation);
     this.resultService.createResult(this.calculation, this.total)
         .then(res => {
-          //console.log(res);
+          console.log(res);
         });
     console.log(this.resultList);
+    this.calculation = '';
   }
 
   getResults = () =>
     this.resultService
     .getResults()
     .subscribe(res => (this.resultList = res).reverse())
-
 }
