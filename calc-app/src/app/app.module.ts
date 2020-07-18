@@ -19,13 +19,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,5 +45,3 @@ import {MatMenuModule} from '@angular/material/menu';
 })
 export class AppModule {
 }
-
-
